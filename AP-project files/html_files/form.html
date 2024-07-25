@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form file</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data" target="middleFrame">
+        <input type="file" id="file" name="file" >
+        <input type="submit" value="Deploy">
+    </form>
+    <form action="http://localhost:8080/publish" method="get" target="rightFrame">
+        <label for="Topic name">Topic name:</label>
+        <input type="text" id="Topic name" name="Topic name" placeholder="enter topic name" style="display: block;" >
+        <label for="Message">Message:</label>
+        <input type="text" id="Message" name="Message" placeholder="enter a message" style="display: block;">
+        <input type="submit" value="Send">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Graph</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin: 0 0 20px 0; /* Add some margin below the title */
+            text-align: center; /* Center the title text */
+            font-size: 2.5em; /* Increase the font size */
+        }
+        svg {
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        .node text {
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            fill: #fff;
+        }
+    </style>
+    <!-- Include the D3.js library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Computational Graph</h1> <!-- Title added here -->
+    <svg id="graph" width="800" height="600">
+        <!-- Define arrowhead marker for directed edges -->
+        <defs>
+            <marker id="arrowhead" viewBox="0 -5 10 10" refX="15" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,-5L10,0L0,5" fill="#999"></path>
+            </marker>
+        </defs>
+    </svg>
+    <script>
+        // Select the SVG element and set its dimensions
+        const svg = d3.select("#graph"),
+              width = +svg.attr("width"),
+              height = +svg.attr("height");
+
+        // Placeholder for nodes data to be replaced by Java class
+        const nodes = NODE_PLACEHOLDER;
+
+        // Placeholder for links data to be replaced by Java class
+        const links = LINK_PLACEHOLDER;
+
+        // Create a simulation for positioning the nodes
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        // Create link elements
+        const link = svg.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("stroke-width", 6)
+            .attr("stroke", "#999")
+            .attr("marker-end", "url(#arrowhead)"); // Add arrowheads to the links
+
+        // Create node elements
+        const node = svg.append("g")
+            .attr("class", "nodes")
+            .selectAll("g")
+            .data(nodes)
+            .enter().append("g")
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        // Draw nodes with larger sizes and different shapes based on labels
+        node.append("path")
+            .attr("d", d => {
+                if (d.label.startsWith("A")) {
+                    return d3.symbol().type(d3.symbolCircle).size(4500)(); // Larger circles for labels starting with 'A'
+                } else if (d.label.startsWith("T")) {
+                    return d3.symbol().type(d3.symbolSquare).size(6000)(); // Larger squares for labels starting with 'T'
+                } else {
+                    return d3.symbol().type(d3.symbolSquare).size(3200)(); // Larger squares for other labels
+                }
+            })
+            .attr("fill", d => d.label.startsWith("A") ? "red" : d.label.startsWith("T") ? "blue" : "green");
+
+        // Add text labels to nodes
+        node.append("text")
+            .attr("dy", 4)
+            .attr("text-anchor", "middle")
+            .text(d => d.label);
+
+        // Update positions of nodes and links on each tick of the simulation
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node.attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+
+        // Functions to handle dragging of nodes
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    </script>
+</body>
+</html>
+
+
