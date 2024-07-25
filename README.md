@@ -27,7 +27,7 @@ This project is designed to provide a dynamic and interactive way to visualize c
    <pre>javac -d bin src/**/*.java </pre>
 2. Start the Server Run the MainTrain class to start the server.
    <pre>java -cp bin graph.MainTrain </pre>
-3. Access the Application Open a web browser and navigate to http://localhost:8080/app/ to access the application interface.
+3. Access the Application Open a web browser and navigate to http://localhost:8080/app/index.html to access the application interface.
 
 ## Commands
 - Upload Configuration: Use the "Upload" button in the application interface to load a .conf file that defines the graph structure.
