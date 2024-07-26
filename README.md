@@ -38,7 +38,7 @@ This project is designed to provide a dynamic and interactive way to visualize c
 - Backend: The Java backend handles HTTP requests, manages configurations, and processes topic messages. It dynamically updates the graph structure based on the configuration files and messages received.
 - Frontend: The D3.js library renders the graph based on the data provided by the backend. It supports interactive manipulation of the graph elements.
 
-## Project Demo likk:
+## Project Demo link:
 https://drive.google.com/file/d/1LXTMqGmRGsvBcGYCKshDp534VKuVJ_gT/view?usp=sharing
 
 ## Enjoy! Chen&Avidan
