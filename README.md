@@ -41,4 +41,4 @@ This project is designed to provide a dynamic and interactive way to visualize c
 ## Project Demo link:
 https://drive.google.com/file/d/1LXTMqGmRGsvBcGYCKshDp534VKuVJ_gT/view?usp=sharing
 
-## Enjoy! Chen&Avidan
+Enjoy! Chen&Avidan
