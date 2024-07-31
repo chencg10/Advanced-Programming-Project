@@ -142,56 +142,6 @@ public class ConfLoader implements Servlet {
         }
         return null;
     }
-
-
-//    public static void main(String[] args) {
-//        // Test the getFileName method
-//        String http_request = """
-//                POST /upload HTTP/1.1
-//                Host: localhost:8080
-//                Connection: keep-alive
-//                Content-Length: 274
-//                Cache-Control: max-age=0
-//                sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
-//                sec-ch-ua-mobile: ?0
-//                sec-ch-ua-platform: "macOS"
-//                Upgrade-Insecure-Requests: 1
-//                Origin: http://localhost:8080
-//                Content-Type: multipart/form-data; boundary=----WebKitFormBoundarySGjck1BAA8euDKFj
-//                User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
-//                Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-//                Sec-Fetch-Site: same-origin
-//                Sec-Fetch-Mode: navigate
-//                Sec-Fetch-User: ?1
-//                Sec-Fetch-Dest: iframe
-//                Referer: http://localhost:8080/app/form.html
-//                Accept-Encoding: gzip, deflate, br, zstd
-//                Accept-Language: he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7
-//                Cookie: Idea-a24beeec=aa279d8e-d87e-4c09-b6e9-c2f360d27466
-//                ------WebKitFormBoundarySGjck1BAA8euDKFj
-//                Content-Disposition: form-data; name="file"; filename="doubleInc.conf"
-//                Content-Type: application/octet-stream
-//
-//                EX1.configs.IncAgent
-//                A
-//                B
-//                EX1.configs.IncAgent
-//                B
-//                C
-//
-//                ------WebKitFormBoundarySGjck1BAA8euDKFj--
-//
-//                """;
-//        BufferedReader input = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(http_request.getBytes())));
-//        try {
-//            server.RequestParser.RequestInfo requestInfo = server.RequestParser.parseRequest(input);
-//            ConfLoader confLoader = new ConfLoader();
-//            assert requestInfo != null;
-//            confLoader.handle(requestInfo, System.out);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
 
 

@@ -52,8 +52,8 @@ public class GenericConfig implements Config {
         for (int i = 0; i < lines.size(); i += 3) {
             // first line is agent full name
             String agentName = lines.get(i);
-            // filter out the project name
-            agentName = agentName.substring(agentName.indexOf('.') + 1);
+            // filter out the project name --> note: [this line might be necessary if the code does not run]
+            // agentName = agentName.substring(agentName.indexOf('.') + 1);
             // second line is agent subscriptions
             String[] subs = lines.get(i + 1).split(",");
             // third line is agent publications

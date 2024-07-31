@@ -95,37 +95,4 @@ public class HtmlLoader implements Servlet {
     public void close() throws IOException {
         clientOut.close();
     }
-
-
-//    public static void main(String[] args) {
-//        String httpCommand = """
-//               GET /app/index.html HTTP/1.1
-//               Host: localhost:8080
-//               Connection: keep-alive
-//               Cache-Control: max-age=0
-//               sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
-//               sec-ch-ua-mobile: ?0
-//               sec-ch-ua-platform: "macOS"
-//               Upgrade-Insecure-Requests: 1
-//               User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
-//               Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-//               Sec-Fetch-Site: cross-site
-//               Sec-Fetch-Mode: navigate
-//               Sec-Fetch-User: ?1
-//               Sec-Fetch-Dest: document
-//               Accept-Encoding: gzip, deflate, br, zstd
-//               Accept-Language: he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7
-//
-//               """;
-//        BufferedReader input = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(httpCommand.getBytes())));
-//        try {
-//            server.RequestParser.RequestInfo requestInfo = server.RequestParser.parseRequest(input);
-//            String currentWorkingDirectory = System.getProperty("user.dir") + "/html_files";
-//            HtmlLoader htmlLoader = new HtmlLoader(currentWorkingDirectory);
-//            assert requestInfo != null;
-//            htmlLoader.handle(requestInfo, System.out);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 }

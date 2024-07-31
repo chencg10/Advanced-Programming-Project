@@ -71,20 +71,6 @@ public class HtmlGraphWriter {
             }
         }
         edges.append(" ];");
-//        StringBuilder edges = new StringBuilder();
-//        edges.append("[ ");
-//        for (int i = 0; i < g.size(); i++) {
-//            for (Node node : g.get(i).getEdges()) {
-//                int index = nodeToIndex.get(node.getName());
-//                edges.append("{source: ").append(i + 1).append(", target: ").append(index).append("}");
-//                if (i != g.size() - 1) {
-//                    edges.append(", ");
-//                }
-//            }
-//        }
-//        edges.append("];");
-
-
 
         // Insert the nodes and edges data into the HTML content
         htmlContent = htmlContent.replace("NODE_PLACEHOLDER;", nodes);
@@ -96,8 +82,5 @@ public class HtmlGraphWriter {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // Optionally, log success message or handle successful creation
-        // System.out.println("Graph HTML file created successfully.");
     }
 }
