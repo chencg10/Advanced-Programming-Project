@@ -48,7 +48,7 @@ public class HtmlGraphWriter {
         nodes.append("[ ");
         for (int i = 0; i < g.size(); i++) {
             Node node = g.get(i);
-            nodes.append("{id: ").append(i + 1).append(", label: \"").append(node.getName()).append("\"} ");
+            nodes.append("{id: ").append(i + 1).append(", label: \"").append(node.getName().split("_")[0]).append("\"} ");
             if (i != g.size() - 1) {
                 nodes.append(", ");
             }
@@ -59,16 +59,32 @@ public class HtmlGraphWriter {
         // Build the edges data in the format required for the HTML file
         StringBuilder edges = new StringBuilder();
         edges.append("[ ");
+        boolean firstEdge = true;
         for (int i = 0; i < g.size(); i++) {
             for (Node node : g.get(i).getEdges()) {
-                int index = nodeToIndex.get(node.getName());
-                edges.append("{source: ").append(i + 1).append(", target: ").append(index).append("}");
-                if (i != g.size() - 1) {
+                if (!firstEdge) {
                     edges.append(", ");
                 }
+                int index = nodeToIndex.get(node.getName());
+                edges.append("{source: ").append(i + 1).append(", target: ").append(index).append("}");
+                firstEdge = false;
             }
         }
-        edges.append("];");
+        edges.append(" ];");
+//        StringBuilder edges = new StringBuilder();
+//        edges.append("[ ");
+//        for (int i = 0; i < g.size(); i++) {
+//            for (Node node : g.get(i).getEdges()) {
+//                int index = nodeToIndex.get(node.getName());
+//                edges.append("{source: ").append(i + 1).append(", target: ").append(index).append("}");
+//                if (i != g.size() - 1) {
+//                    edges.append(", ");
+//                }
+//            }
+//        }
+//        edges.append("];");
+
+
 
         // Insert the nodes and edges data into the HTML content
         htmlContent = htmlContent.replace("NODE_PLACEHOLDER;", nodes);

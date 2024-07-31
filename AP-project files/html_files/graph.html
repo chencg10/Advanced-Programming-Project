@@ -50,10 +50,10 @@
               height = +svg.attr("height");
 
         // Placeholder for nodes data to be replaced by Java class
-        const nodes = [ {id: 1, label: "TA"} , {id: 2, label: "APlusAgent"} , {id: 3, label: "TB"} , {id: 4, label: "TC"} , {id: 5, label: "AIncAgent"} , {id: 6, label: "TD"} ];
+        const nodes = [ {id: 1, label: "TA"} , {id: 2, label: "APlusAgent"} , {id: 3, label: "ASubAgent"} , {id: 4, label: "TB"} , {id: 5, label: "TC"} , {id: 6, label: "AMulAgent"} , {id: 7, label: "TD"} , {id: 8, label: "TE"} ];
 
         // Placeholder for links data to be replaced by Java class
-        const links = [ {source: 1, target: 2}, {source: 2, target: 4}, {source: 3, target: 2}, {source: 4, target: 5}, {source: 5, target: 6}, ];
+        const links = [ {source: 1, target: 2}, {source: 1, target: 3}, {source: 2, target: 5}, {source: 3, target: 7}, {source: 4, target: 2}, {source: 4, target: 3}, {source: 5, target: 6}, {source: 6, target: 8}, {source: 7, target: 6} ];
 
         // Create a simulation for positioning the nodes
         const simulation = d3.forceSimulation(nodes)

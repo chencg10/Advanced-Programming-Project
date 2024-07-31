@@ -30,6 +30,9 @@ public class GenericConfig implements Config {
         } catch (IOException e) {
             // e.printStackTrace();
         }
+
+        // clear empty lines from the list
+        lines.removeIf(String::isEmpty);
     }
 
     /**

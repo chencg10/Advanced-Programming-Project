@@ -18,7 +18,7 @@ public class RequestParser {
      * @throws IOException If an I/O error occurs while reading the request.
      */
     public static RequestInfo parseRequest(BufferedReader reader) throws IOException {
-        // print the http command
+        // print the http command:
         // Mark the BufferedReader before reading
         reader.mark(1000000);
         System.out.println("----------------Start of http command---------------------");
